@@ -1,0 +1,33 @@
+version: '3.3'
+services:
+  mysql:
+    image: mysql:5.6
+    container_name: 'portal_noticias_mysql'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=456852
+    networks: 
+      - db_mysql
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin:latest
+      container_name: 'portal_noticias_phpmyadmin'
+      links:
+        - mysql
+      ports:
+        - 80:80
+      environment:
+        PMA_HOST: mysql
+        PMA_PORT: 3306
+      volumes: 
+        - /sessions
+      networks: 
+      - db_mysql
+
+volumes:
+  data_mysql:  
+
+networks:
+  db_mysql:
