@@ -2,9 +2,13 @@
   "name": "portal_noticias",
   "version": "1.0.0",
   "description": "Portal de Notícias",
-  "main": "noticias.js",
+  "main": "app.js",  
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/alansvieceli/portal_noticias.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "Alan Vieceli",
   "license": "ISC",
