@@ -1,16 +1,18 @@
 app = require("./config/server")
 
-app.get("/", function(req, res) {
-  res.render("home/index")
-});
+ //var rotaHome = require("./app/routes/home");
+ //var rotaNoticias = require("./app/routes/noticias");
+ //var rotaFormularioInclusaoNoticia = require("./app/routes/formulario_inclusao_noticia");
+ //rotaHome(app);
+ //rotaNoticias(app);
+ //rotaFormularioInclusaoNoticia(app);
 
-app.get("/formulario_inclusao_noticia", function(req, res) {  
-  res.render("admin/form_add_noticia")
-});
+ //ou
 
-app.get("/noticias", function(req, res) {  
-  res.render("noticias/noticias")
-});
+ require("./app/routes/home")(app);
+ require("./app/routes/noticias")(app);
+ require("./app/routes/formulario_inclusao_noticia")(app);
+
 
 app.listen(3000, function(){
   console.log("Sevidor ON. Porta: 3000")
