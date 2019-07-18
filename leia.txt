@@ -1,1 +1,2 @@
 EJS - modulo escrever paginas HTML junto com javascript (engine de views)
+Nodemon - npm install -g nodemon
