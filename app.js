@@ -9,9 +9,13 @@ app = require("./config/server")
 
  //ou
 
- require("./app/routes/home")(app);
- require("./app/routes/noticias")(app);
- require("./app/routes/formulario_inclusao_noticia")(app);
+ //require("./app/routes/home")(app);
+ //require("./app/routes/noticias")(app);
+ //require("./app/routes/formulario_inclusao_noticia")(app);
+
+ //ou 
+ 
+ //usar o consign (esta no config/server)
 
 
 app.listen(3000, function(){
