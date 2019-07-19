@@ -1,10 +1,7 @@
-var dbConnection = require("../../config/dbConnection")
-
 module.exports = function (app){
-
-  var connection = dbConnection();
-
+  
   app.get("/noticias", function(req, res) {      
+    var connection = app.config.dbConnection(); // foi mapeado la no server
     connection.query("select * from noticias", function(error, results){      
       if (error) 
         throw error;
