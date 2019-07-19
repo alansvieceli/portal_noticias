@@ -6,7 +6,7 @@ module.exports = function (){
 
   this.getNoticia = function(id, connection, callback) {
     connection.query(`select * from noticias where id = ${id}`, callback)
-}
+  }
   
-    return this;  
+  return this;  
 }

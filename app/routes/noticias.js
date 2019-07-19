@@ -2,8 +2,8 @@ module.exports = function (application) {
 
   application.get("/noticias", function (req, res) {
 
-    var connection = application.config.dbConnection(); // foi mapeado la no server
-    var noticiasModel = application.app.models.noticiasModel
+    const connection = application.config.dbConnection(); // foi mapeado la no server
+    const noticiasModel = application.app.models.noticiasModel
 
     noticiasModel.getNoticias(connection, function (error, results) {
       if (error) throw error;
