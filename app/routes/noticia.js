@@ -1,8 +1,11 @@
-module.exports = function (app){
+module.exports = function (application){
   
-  app.get("/noticia", function(req, res) {      
-    var connection = app.config.dbConnection(); // foi mapeado la no server
-    connection.query("select * from noticias where id = 1", function(error, results){      
+  application.get("/noticia", function(req, res) {      
+    
+    var connection = application.config.dbConnection(); // foi mapeado la no server
+    var noticiasModel = application.app.models.noticiasModel
+
+    noticiasModel.getNoticia(1, connection, function (error, results) {
       if (error) 
         throw error;
       let string=JSON.stringify(results);
