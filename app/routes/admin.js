@@ -4,7 +4,15 @@ module.exports = function (application) {
   });
 
   application.post("/noticias/salvar", function(req, res) {  
-    let noticias = req.body;
-    res.send(noticias);
+    let noticia = req.body;    
+    let connection = application.config.dbConnection(); // foi mapeado la no server
+    let noticiasModel = application.app.models.noticiasModel
+
+    noticiasModel.salvarNoticia(noticia, connection, function (error, results) {
+      if (error) console.log(error);
+      res.redirect('/noticias')
+    });
+
+
   });
 }
