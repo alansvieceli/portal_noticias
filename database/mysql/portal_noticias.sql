@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql:3306
--- Tempo de geração: 25-Jul-2019 às 14:24
+-- Tempo de geração: 25-Jul-2019 às 17:14
 -- Versão do servidor: 5.6.44
 -- versão do PHP: 7.2.19
 
@@ -32,8 +32,15 @@ CREATE TABLE `noticias` (
   `id` int(11) NOT NULL,
   `titulo` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `noticia` text COLLATE utf8_unicode_ci NOT NULL,
+  `resumo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `autor` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `data_noticia` date NOT NULL,
   `data_criacao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `noticias`
+--
 
 --
 -- Índices para tabelas despejadas
@@ -53,7 +60,7 @@ ALTER TABLE `noticias`
 -- AUTO_INCREMENT de tabela `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
