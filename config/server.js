@@ -8,6 +8,7 @@ app.set("views", "./app/views"); //a partir de onde o modulo é chamado
 
 //aplicando midlewares
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static('./app/public'));
 
 consign()
   .include('app/routes')
