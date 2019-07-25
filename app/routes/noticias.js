@@ -3,9 +3,9 @@ module.exports = function (application) {
   application.get("/noticias", function (req, res) {
 
     const connection = application.config.dbConnection(); // foi mapeado la no server
-    const noticiasModel = application.app.models.noticiasModel
+    const NoticiasDAO = new application.app.models.NoticiasDAO(connection);
 
-    noticiasModel.getNoticias(connection, function (error, results) {
+    NoticiasDAO.getNoticias(function (error, results) {
       if (error) throw error;
       let string = JSON.stringify(results);
       let json = JSON.parse(string);

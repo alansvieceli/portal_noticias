@@ -6,9 +6,9 @@ module.exports = function (application) {
   application.post("/noticias/salvar", function(req, res) {  
     let noticia = req.body;    
     let connection = application.config.dbConnection(); // foi mapeado la no server
-    let noticiasModel = application.app.models.noticiasModel
+    let NoticiasDAO = new application.app.models.NoticiasDAO(connection);
 
-    noticiasModel.salvarNoticia(noticia, connection, function (error, results) {
+    NoticiasDAO.salvarNoticia(noticia, function (error, results) {
       if (error) console.log(error);
       res.redirect('/noticias')
     });
