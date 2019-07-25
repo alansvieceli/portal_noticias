@@ -11,17 +11,18 @@ module.exports = function (application) {
   application.post("/noticias/salvar",
     check('titulo')
     .isLength({min:1})
-    .withMessage('não pode ser vazio'),
+    .withMessage('Título não pode ser vazio'),
     check('resumo')
     .isLength({min: 10, max: 100})
-    .withMessage('deve ter entre 10 e 100 caracteres'),
+    .withMessage('Resumo deve ter entre 10 e 100 caracteres'),
     function (req, res) {
 
       const errors = validationResult(req)
       if (!errors.isEmpty()) {
-        return res.status(422).json({
-          errors: errors.array()
-        })
+        //return res.status(422).json({errors: errors.array()})
+        console.log(errors.array());
+        res.render("admin/form_add_noticia", {validacao: errors.array()});
+        return;
       }
 
       let noticia = req.body;
