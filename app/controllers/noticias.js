@@ -12,11 +12,13 @@ module.exports.noticias = (application, res) => {
 
 }
 
-module.exports.noticia = (application, res) => {
+module.exports.noticia = (application, req, res) => {
   const connection = application.config.dbConnection(); // foi mapeado la no server
   const NoticiasDAO = new application.app.models.NoticiasDAO(connection);
 
-  NoticiasDAO.getNoticia(7, function (error, results) {
+  let id = req.query.id;
+
+  NoticiasDAO.getNoticia(id, function (error, results) {
     if (error) console.log(error);    
     res.render("noticias/noticia", {noticia: results})
     //res.json(json)
