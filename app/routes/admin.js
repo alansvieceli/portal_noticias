@@ -10,8 +10,8 @@ module.exports = function (application) {
 
   application.post("/noticias/salvar",
     [check('titulo')
-      .isLength({min: 1})
-      .withMessage('Título não pode ser vazio'),
+      .isLength({min: 10, max: 100})
+      .withMessage('Título deve ter entre 10 e 100 caracteres'),
      check('resumo')
       .isLength({min: 10, max: 100})
       .withMessage('Resumo deve ter entre 10 e 100 caracteres')

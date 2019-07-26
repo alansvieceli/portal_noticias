@@ -2,7 +2,8 @@ const { validationResult } = require('express-validator');
 
 module.exports.formulario_inclusao_noticia = (res) => {
   res.render("admin/form_add_noticia", {
-    noticia: {}
+    noticia: {},
+    validacao: {}
   })
 }
 

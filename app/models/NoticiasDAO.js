@@ -3,7 +3,7 @@ function NoticiasDAO(connection){
 }
 
 NoticiasDAO.prototype.getNoticias = function(callback) {
-  this._connection.query("select * from noticias", callback)
+  this._connection.query("select * from noticias order by data_criacao desc", callback)
 }
 
 NoticiasDAO.prototype.getNoticia = function(id, callback) {
@@ -14,6 +14,10 @@ NoticiasDAO.prototype.salvarNoticia = function(noticia, callback) { //arrow func
   //mysql suporta passar um json como param, ele monta o resto tudo
   //o json tem q ter os mesmos nomes dos campos da tabela, óbvio
   this._connection.query('insert into noticias set ?', noticia, callback);
+}
+
+NoticiasDAO.prototype.getUltimasNoticias = function (qtde, callback){
+  this._connection.query(`select * from noticias order by data_criacao desc limit ${qtde}`, callback);
 }
 
 module.exports = function (){
